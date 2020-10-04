@@ -1,5 +1,7 @@
 import React from 'react';
 import { getSummonerByName } from '../services/Api'
+import Match from './Match'
+
 
 class AllContainer extends React.Component {
   constructor() {
@@ -11,10 +13,10 @@ class AllContainer extends React.Component {
     };
   }
 
-  componentDidUpdate()
-  {
-
-  }
+    componentDidUpdate()
+    {
+        console.log(this.state)
+    }
 
 handleChange = (event) => 
 {
@@ -40,7 +42,7 @@ getData = (event) =>
 
 
   render() {
-    const {username} = this.state
+      const { username, matchList, puuid } = this.state
     return (
         <div>
             <form onSubmit={this.getData}>
@@ -48,6 +50,15 @@ getData = (event) =>
                 <input name= 'username' value={username} onChange={this.handleChange} type="text"/>
                 <button type='submit'>Search</button>
             </form>
+            {/* <div>
+              {matchList.map((value,index) => 
+              {
+                return <p>{value}</p>
+              })}
+            </div> */}
+            {
+                matchList ?  matchList.map((value) => {return <Match key = {value} puuid = {puuid} matchId = {value} />})  : console.log('pas de match list')
+            }
         </div>
     )
   }

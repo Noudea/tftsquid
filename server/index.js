@@ -1,5 +1,5 @@
 
-import { getSummonerByName, getMatchList}  from './ApiLol.js.';
+import { getSummonerByName, getMatchList, getMatch, getName }  from './ApiLol.js';
 import express from 'express';
 import fetch from 'node-fetch'
 
@@ -41,7 +41,7 @@ app.get('/getSummonerByName/:username',(request, response) =>
     {
         username : request.params.username,
     }
-    console.log(reqparams)
+    // console.log(reqparams)
     getSummonerByName(reqparams).then(result => {
         const summonerDetails = result
         getMatchList(summonerDetails.puuid).then(matchList =>
@@ -52,6 +52,50 @@ app.get('/getSummonerByName/:username',(request, response) =>
             })
     })
 })
+
+app.get('/getMatch/:matchId',(request,response) =>
+{
+    response.set('Access-Control-Allow-Origin', '*')
+    const reqparams = 
+    {
+        matchId: request.params.matchId
+    }
+    getMatch(reqparams).then (result => {
+        // console.log(result)
+        response.json(result)
+    })
+})
+
+app.get('/getName/:puuid', (request, response) => {
+    response.set('Access-Control-Allow-Origin', '*')
+    const reqparams =
+    {
+        puuid: request.params.puuid
+    }
+    getName(reqparams).then(result => {
+        // console.log(result)
+        response.json(result)
+    })
+})
+
+app.get('/getMatchNames/:matchId', (request, response) => {
+    response.set('Access-Control-Allow-Origin', '*')
+    const reqparams =
+    {
+        matchId: request.params.matchId
+    }
+    getMatch(reqparams)
+    .then((result)=>
+    {
+        getName(result.info.participants[0])
+        .then((result) =>
+        {
+            response.json(result.name)
+        })
+    })
+})
+
+
 
 
 // function getSummonerByName() {
