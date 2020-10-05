@@ -472,7 +472,16 @@
       {
         "style": "gold",
         "min": 1
-      }
+      },
+        {
+            "style": "gold",
+            "min": 1
+        },
+        {
+            "style": "gold",
+            "min": 1
+        }
+      
     ]
   },
   {

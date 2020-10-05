@@ -68,3 +68,21 @@
     color: red;
     padding : 10px;
 }
+
+.chromatic
+{
+    background-color:purple;
+}
+
+.silver
+{
+    background-color: silver;
+}
+.gold
+{
+    background-color:gold;
+}
+
+.bronze{
+    background-color:chocolate;
+}
