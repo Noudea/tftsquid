@@ -27,9 +27,7 @@ class Username extends React.Component {
   render() {
       const { username } = this.state
     return (
-        <div className='username'>
-            <p>{username}</p>
-        </div>
+            <p className={this.props.class}>{username}</p>
     )
   }
 

@@ -16,18 +16,19 @@ class Match extends React.Component {
   }
 
     componentDidMount() {
-        getMatch(this.props.matchId)
-        .then((result) => 
-        {
-            this.setState({matchData : result})
-        })
-        .then(() => {
-            this.comparePuuid(this.state.matchData.info.participants)
-        })
-        .then(() =>
-        {
-            console.log(this.state)
-        })
+        setTimeout(() => {
+            getMatch(this.props.matchId)
+                .then((result) => {
+                    this.setState({ matchData: result })
+                })
+                .then(() => {
+                    this.comparePuuid(this.state.matchData.info.participants)
+                })
+                .then(() => {
+                    console.log(this.state)
+                })
+        }, 500*this.props.timer);
+        
     }
 
     comparePuuid = () => {
@@ -54,9 +55,9 @@ class Match extends React.Component {
         <div className = "matchContainer">
                 { userInfo ? <Info key = {userPuuid} data = {userInfo}/> : false}
             <div className = "participantsContainer">
-                <p className ='currentUser'>{userInfo ? <Username puuid={userInfo.puuid} /> : console.log('loadpasasasasa')}</p>
+                {userInfo ? <Username class= 'currentUser' puuid={userInfo.puuid} /> : console.log('loadpasasasasa')}
                 {
-                    participants ? participants.map((value) => { return <Username puuid={value} /> }) : false
+                    participants ? participants.map((value) => { return <Username class='username' puuid={value} /> }) : false
                 }
 
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ChampionComponant from '../componants/ChampionComponant'
-
+import TraitsComponant from '../componants/TraitsComponant'
 class Info extends React.Component {
   constructor() {
     super();
@@ -14,11 +14,12 @@ class Info extends React.Component {
 
 
     render() {
-        const { placement, units } = this.props.data
+        const { placement, units, traits} = this.props.data
         return (
             <div className = 'info'>
                 <p>{placement}</p>
                 {units ? units.map((value) => {return <ChampionComponant data = {value}/>}): false}
+                {traits ? traits.map((value)=> {return <TraitsComponant data ={value}/>}):false}
             </div>
         )
     }

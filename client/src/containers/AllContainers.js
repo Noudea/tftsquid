@@ -9,7 +9,8 @@ class AllContainer extends React.Component {
     this.state = {
       username : undefined,
       puuid : undefined,
-      matchList : undefined
+      matchList : undefined,
+      load: false
     };
   }
 
@@ -40,6 +41,21 @@ getData = (event) =>
     })
 }
 
+componentDidUpdate = () =>
+{
+    
+}
+
+test = (value,index) => 
+{
+    const { username, matchList, puuid } = this.state
+    setTimeout(() => {
+        console.log(index)
+        this.forceUpdate()
+          return <Match key={value} puuid={puuid} matchId={value} /> 
+    }, 1000*index);
+}
+
 
   render() {
       const { username, matchList, puuid } = this.state
@@ -57,13 +73,16 @@ getData = (event) =>
               })}
             </div> */}
             {
-                matchList ?  matchList.map((value) => {return <Match key = {value} puuid = {puuid} matchId = {value} />})  : console.log('pas de match list')
+                matchList ?  matchList.map((value,index) => {return <Match timer = {index} key = {value} puuid = {puuid} matchId = {value} />})  : console.log('pas de match list')
             }
+            {/* {
+                matchList ? matchList.map((value,index,test)=> {this.test(value,index)}) : false
+            } */}
         </div>
-    )
-  }
+        
 
-  componentDidMount() {
+        
+    )
   }
 }
 

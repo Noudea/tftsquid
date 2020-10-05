@@ -21,17 +21,17 @@ app.use(express.static('public'));
 
 
 //api key de pour les requetes lol + parametre globaux
-const apiKey = 'RGAPI-3f63f5e6-43a0-4e4b-b47e-fa13ee325567'
-const globalparams =
-{
-    headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0",
-        "Accept-Language": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
-        "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-        "Origin": "https://developer.riotgames.com",
-        "X-Riot-Token": "RGAPI-3f63f5e6-43a0-4e4b-b47e-fa13ee325567"
-    }
-}
+
+// const globalparams =
+// {
+//     headers: {
+//         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0",
+//         "Accept-Language": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+//         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+//         "Origin": "https://developer.riotgames.com",
+//         "X-Riot-Token": "RGAPI-9d8eeb71-ff59-4e9b-a317-2818d9a6c0e5"
+//     }
+// }
 
 
 app.get('/getSummonerByName/:username',(request, response) => 
