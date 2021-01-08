@@ -52,7 +52,7 @@ export function getMatchList(puuid) {
         };
 
         console.log(puuid)
-        fetch('https://europe.api.riotgames.com/tft/match/v1/matches/by-puuid/'+ puuid +'/ids?count=5', params)
+        fetch('https://europe.api.riotgames.com/tft/match/v1/matches/by-puuid/'+ puuid +'/ids?count=2', params)
             .then((response) => response.json())
             .then(result => {
                 console.log(result),

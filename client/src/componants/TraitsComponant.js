@@ -59,7 +59,7 @@ class TraitsComponant extends React.Component {
     return (
         <div>
             {/* { isLoaded ? <img src={require('../ressources/set4/traits/' + encodeURI(this.state.trait.name.toLowerCase() + '.svg'))}></img> : <p>chargement</p>} */}
-            {isLoaded ? trait.style > 0 ? <div className={trait.styleColor}><img src={require('../ressources/set4/traits/' + this.state.trait.name.toLowerCase().replace(/ /g, "") + '.svg')}></img></div>:false : <p>chargemert</p>}
+            {isLoaded ? trait.style > 0 ? <div className={trait.styleColor + ' hexagon' +' hexagonemain'}><img  title = {trait.name} src={require('../ressources/set4/traits/' + this.state.trait.name.toLowerCase().replace(/ /g, "") + '.svg')}></img></div>:false : <p>chargemert</p>}
         </div>
         
         

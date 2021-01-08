@@ -19,7 +19,10 @@ class Info extends React.Component {
             <div className = 'info'>
                 <p>{placement}</p>
                 {units ? units.map((value) => {return <ChampionComponant data = {value}/>}): false}
-                {traits ? traits.map((value)=> {return <TraitsComponant data ={value}/>}):false}
+                <div className='traitsContainer' >
+                    {traits ? traits.map((value) => { return <TraitsComponant data={value} /> }) : false}
+                </div>
+                
             </div>
         )
     }
